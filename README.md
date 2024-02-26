@@ -1,3 +1,4 @@
-![WINCARA](https://github.com/rukenya321/Wincara/assets/131617952/e7e6f447-1341-437e-91f8-a642463aa0f0)
+![WINCARA](https://github.com/rukenya321/Wincara/assets/131617952/ec99796d-d91c-48f2-9d55-34b53b63ed7a)
+
 
 # Wincara
