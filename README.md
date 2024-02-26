@@ -2,5 +2,6 @@
 
 
 # Wincara
+## SplashScreen
+![JumbaLink App](https://github.com/rukenya321/Wincara/assets/131617952/a094a4dc-afc2-4d1c-ad30-9b2014a97a64)
 
-https://www.canva.com/design/DAF6ztF8D14/0qZUQ3cT6e8abibDCi9lMQ/edit?utm_content=DAF6ztF8D14&utm_campaign=designshare&utm_medium=link2&utm_source=sharebutton
