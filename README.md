@@ -2,8 +2,9 @@
 
 
 # Wincara
-## SplashScreen ## LoginScreen
-![JumbaLink App](https://github.com/rukenya321/Wincara/assets/131617952/a094a4dc-afc2-4d1c-ad30-9b2014a97a64) ![JumbaLink App](https://github.com/rukenya321/Wincara/assets/131617952/b8e9b02e-779b-428e-850d-56620f64ca9d) ![JumbaLink App](https://github.com/rukenya321/Wincara/assets/131617952/2a9f10d1-e44b-431a-98c9-aacc895e857b)
+## SplashScreen
+![Uploading JumbaLink App.png…]()
+
 
 
 
