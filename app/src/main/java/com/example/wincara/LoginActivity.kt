@@ -6,7 +6,6 @@ import android.os.Bundle
 import android.widget.Button
 import android.widget.EditText
 import android.widget.Toast
-import androidx.activity.enableEdgeToEdge
 
 class LoginActivity : AppCompatActivity() {
     private lateinit var dbHelper: DatabaseHelper

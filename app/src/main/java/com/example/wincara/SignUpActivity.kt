@@ -7,7 +7,6 @@ import android.widget.CheckBox
 import android.widget.EditText
 import android.widget.ImageButton
 import android.widget.Toast
-import androidx.activity.enableEdgeToEdge
 
 class SignUpActivity : AppCompatActivity() {
     private lateinit var dbHelper: DatabaseHelper
