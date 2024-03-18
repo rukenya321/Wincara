@@ -12,4 +12,4 @@
 ![SignupScreen2](https://github.com/rukenya321/Wincara/assets/131617952/e493d63c-ff81-48f0-80dd-ec6ce99830f5)
 
 
-## This a firebase database implementation version.
+## Firebase database implementation version.
