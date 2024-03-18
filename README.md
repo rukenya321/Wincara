@@ -1,6 +1,6 @@
 
 ![WINCARA](https://github.com/rukenya321/Wincara/assets/131617952/0cdbc81c-d0da-4286-8429-fa4fa5116557)
-# WINCARA Application
+# WINCARA Application - Firebase database version
 
 ## SplashScreen
 ![SplashScreen2](https://github.com/rukenya321/Wincara/assets/131617952/6c84665d-1ed3-4046-aaeb-6076672e5fa5)
@@ -10,6 +10,3 @@
 
 ## SignupScreen
 ![SignupScreen2](https://github.com/rukenya321/Wincara/assets/131617952/e493d63c-ff81-48f0-80dd-ec6ce99830f5)
-
-
-## Firebase database implementation version.
