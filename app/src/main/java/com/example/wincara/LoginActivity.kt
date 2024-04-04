@@ -33,6 +33,10 @@ class LoginActivity : AppCompatActivity() {
             if (authenticateUser(username, password)) {
                 Toast.makeText(this, "Login successful", Toast.LENGTH_SHORT).show()
 
+                val intent = Intent(this, UserListActivity::class.java)
+                startActivity(intent)
+
+
             } else {
                 Toast.makeText(this, "Invalid username or password", Toast.LENGTH_SHORT).show()
             }
