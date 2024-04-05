@@ -4,6 +4,7 @@ package com.example.wincara
 import android.annotation.SuppressLint
 import android.database.Cursor
 import android.os.Bundle
+import android.widget.ImageButton
 import android.widget.TableLayout
 import android.widget.TableRow
 import android.widget.TextView
@@ -24,6 +25,11 @@ class UserListActivity : AppCompatActivity() {
     @SuppressLint("Range")
     private fun displayUserList() {
         val tableLayout = findViewById<TableLayout>(R.id.tableLayout)
+
+        val backButton = findViewById<ImageButton>(R.id.backButton)
+        backButton.setOnClickListener {
+            onBackPressed()
+        }
         val cursor = dbHelper.readableDatabase.rawQuery("SELECT * FROM ${DatabaseHelper.TABLE_USERS}", null)
 
         if (cursor.moveToFirst()) {

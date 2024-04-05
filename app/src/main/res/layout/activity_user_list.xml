@@ -1,13 +1,125 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:background="@color/mainbg"
+    tools:context=".UserListActivity">
 
-    <TableLayout
-        android:id="@+id/tableLayout"
-        android:layout_width="match_parent"
+    <!-- Back Button -->
+    <ImageButton
+        android:id="@+id/backButton"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:padding="16dp">
-    </TableLayout>
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="32dp"
+        android:background="@color/mainbg"
+        android:src="@drawable/baseline_arrow_circle_left_24"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
-</RelativeLayout>
+    <!-- Title -->
+    <TextView
+        android:id="@+id/createaccount"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/poppins_bold"
+        android:text="Wincara Customers"
+        android:textColor="@color/black"
+        android:textSize="34sp"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="32dp"
+        android:layout_marginBottom="16dp"/>
+
+    <!-- Table Layout -->
+    <ScrollView
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:paddingLeft="16dp"
+        android:paddingRight="12dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/createaccount">
+
+
+        <TableLayout
+            android:id="@+id/tableLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/table_background"
+            android:padding="16dp"
+            android:paddingRight="32dp"
+            android:stretchColumns="*">
+
+            <!-- Header Row -->
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/mainbg"> <!-- Set background color for header -->
+
+                <!-- ID Title -->
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="ID"
+                    android:textColor="@color/black"
+                    android:textStyle="bold"
+                    android:padding="8dp"
+                    android:gravity="center"/>
+
+                <!-- First Name Title -->
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="First Name"
+                    android:textColor="@color/black"
+                    android:textStyle="bold"
+                    android:padding="8dp"
+                    android:gravity="center"/>
+
+                <!-- Last Name Title -->
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="Last Name"
+                    android:textColor="@color/black"
+                    android:textStyle="bold"
+                    android:padding="8dp"
+                    android:gravity="center"/>
+
+                <!-- Gender Title -->
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="Gender"
+                    android:textColor="@color/black"
+                    android:textStyle="bold"
+                    android:padding="8dp"
+                    android:gravity="center"/>
+
+                <!-- Department Title -->
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="Department"
+                    android:textColor="@color/black"
+                    android:textStyle="bold"
+                    android:padding="8dp"
+                    android:gravity="center"/>
+            </TableRow>
+
+            <!-- Table Rows and Cells will be added programmatically -->
+        </TableLayout>
+
+    </ScrollView>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
