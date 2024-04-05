@@ -31,7 +31,7 @@ class UserListActivity : AppCompatActivity() {
                 val id = cursor.getInt(cursor.getColumnIndex(DatabaseHelper.COLUMN_ID))
                 val firstName = cursor.getString(cursor.getColumnIndex(DatabaseHelper.COLUMN_FIRST_NAME))
                 val lastName = cursor.getString(cursor.getColumnIndex(DatabaseHelper.COLUMN_LAST_NAME))
-                val password = cursor.getString(cursor.getColumnIndex(DatabaseHelper.COLUMN_PASSWORD))
+                //val password = cursor.getString(cursor.getColumnIndex(DatabaseHelper.COLUMN_PASSWORD))
                 val gender = cursor.getString(cursor.getColumnIndex(DatabaseHelper.COLUMN_GENDER))
                 val department = cursor.getString(cursor.getColumnIndex(DatabaseHelper.COLUMN_DEPARTMENT))
 
@@ -49,9 +49,9 @@ class UserListActivity : AppCompatActivity() {
                 lastNameTextView.text = lastName
                 row.addView(lastNameTextView)
 
-                val passwordTextView = TextView(this)
+                /*val passwordTextView = TextView(this)
                 passwordTextView.text = password
-                row.addView(passwordTextView)
+                row.addView(passwordTextView)*/
 
                 val genderTextView = TextView(this)
                 genderTextView.text = gender
