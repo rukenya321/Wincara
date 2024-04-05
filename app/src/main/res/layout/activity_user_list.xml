@@ -45,7 +45,6 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/createaccount">
 
-
         <TableLayout
             android:id="@+id/tableLayout"
             android:layout_width="match_parent"
@@ -55,69 +54,70 @@
             android:paddingRight="32dp"
             android:stretchColumns="*">
 
-            <!-- Header Row -->
+            <!-- Title Row -->
             <TableRow
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:background="@color/mainbg"> <!-- Set background color for header -->
+                android:layout_marginLeft="-20dp"
+                android:gravity="center_vertical"
+                android:paddingLeft="-20dp">
 
                 <!-- ID Title -->
                 <TextView
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:text="ID"
-                    android:textColor="@color/black"
-                    android:textStyle="bold"
+                    android:gravity="center"
                     android:padding="8dp"
-                    android:gravity="center"/>
+                    android:text="ID"
+                    android:textColor="@color/mainbg"
+                    android:textStyle="bold" />
 
                 <!-- First Name Title -->
                 <TextView
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:text="First Name"
-                    android:textColor="@color/black"
-                    android:textStyle="bold"
+                    android:gravity="center"
                     android:padding="8dp"
-                    android:gravity="center"/>
+                    android:text="First Name"
+                    android:textColor="@color/mainbg"
+                    android:textStyle="bold" />
 
                 <!-- Last Name Title -->
                 <TextView
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:text="Last Name"
-                    android:textColor="@color/black"
-                    android:textStyle="bold"
+                    android:gravity="center"
                     android:padding="8dp"
-                    android:gravity="center"/>
+                    android:text="Last Name"
+                    android:textColor="@color/mainbg"
+                    android:textStyle="bold" />
 
                 <!-- Gender Title -->
                 <TextView
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:text="Gender"
-                    android:textColor="@color/black"
-                    android:textStyle="bold"
+                    android:gravity="center"
                     android:padding="8dp"
-                    android:gravity="center"/>
+                    android:text="Gender"
+                    android:textColor="@color/mainbg"
+                    android:textStyle="bold" />
 
                 <!-- Department Title -->
                 <TextView
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:text="Department"
-                    android:textColor="@color/black"
-                    android:textStyle="bold"
+                    android:gravity="center"
                     android:padding="8dp"
-                    android:gravity="center"/>
+                    android:text="Department"
+                    android:textColor="@color/mainbg"
+                    android:textStyle="bold" />
             </TableRow>
 
-            <!-- Table Rows and Cells will be added programmatically -->
         </TableLayout>
 
     </ScrollView>
