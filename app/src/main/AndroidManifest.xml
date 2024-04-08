@@ -15,9 +15,7 @@
         <activity
             android:name=".UserListActivity"
             android:exported="false" />
-        <activity
-            android:name=".UserDataActivity"
-            android:exported="false" />
+
         <activity
             android:name=".SignUpActivity"
             android:exported="false" />
@@ -33,9 +31,6 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity
-            android:name=".LoginActivity"
-            android:exported="false" />
 
         <meta-data
             android:name="preloaded_fonts"

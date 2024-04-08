@@ -36,7 +36,6 @@ class SignUpActivity : AppCompatActivity() {
             val inputFirstName: EditText = findViewById(R.id.inputFirstName)
             val inputLastName: EditText = findViewById(R.id.inputLastName)
 
-// Automatically append a single space when moving from first name to last name field
             inputFirstName.setOnFocusChangeListener { _, hasFocus ->
                 if (!hasFocus && inputFirstName.text.isNotEmpty() && inputLastName.text.isNotEmpty()) {
                     val text = inputFirstName.text
@@ -46,7 +45,6 @@ class SignUpActivity : AppCompatActivity() {
                 }
             }
 
-// Automatically append a single space when moving from last name to first name field
             inputLastName.setOnFocusChangeListener { _, hasFocus ->
                 if (!hasFocus && inputFirstName.text.isNotEmpty() && inputLastName.text.isNotEmpty()) {
                     val text = inputLastName.text
@@ -56,7 +54,6 @@ class SignUpActivity : AppCompatActivity() {
                 }
             }
 
-// Trim leading and trailing spaces before saving to the database
             val firstName = inputFirstName.text.trim().toString()
             val lastName = inputLastName.text.trim().toString()
 

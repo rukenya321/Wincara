@@ -57,23 +57,18 @@ class LoginActivity : AppCompatActivity() {
     private fun authenticateUser(username: String, password: String): Boolean {
         val db = dbHelper.readableDatabase
 
-        // Define the query to check for username and password
         val query = "SELECT * FROM ${DatabaseHelper.TABLE_USERS} WHERE LOWER(${DatabaseHelper.COLUMN_FIRST_NAME}) = LOWER(?) AND ${DatabaseHelper.COLUMN_PASSWORD} = ?"
 
-        // Execute the query with the provided username and password
         val cursor = db.rawQuery(query, arrayOf(username, password))
         var exists = false
 
         try {
-            // Check if the cursor has any rows (i.e., if the user exists)
             if (cursor.moveToFirst()) {
                 exists = true
             }
         } catch (e: Exception) {
-            // Handle any exceptions that may occur during the query execution
             Log.e("AuthenticationError", "Error authenticating user: ${e.message}")
         } finally {
-            // Close the cursor and the database connection
             cursor.close()
             db.close()
         }
