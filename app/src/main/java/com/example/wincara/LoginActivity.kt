@@ -26,7 +26,6 @@ class LoginActivity : AppCompatActivity() {
             val inputUsername: EditText = findViewById(R.id.inputUsername)
             val inputPass: EditText = findViewById(R.id.inputPass)
 
-// Trim leading and trailing spaces before authentication
             val username = inputUsername.text.trim().toString()
             val password = inputPass.text.toString()
 
