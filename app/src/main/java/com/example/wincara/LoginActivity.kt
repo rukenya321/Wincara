@@ -6,6 +6,8 @@ import android.os.Bundle
 import android.util.Log
 import android.widget.Button
 import android.widget.EditText
+import android.widget.ImageView
+import android.widget.TextView
 import android.widget.Toast
 
 class LoginActivity : AppCompatActivity() {
@@ -36,15 +38,14 @@ class LoginActivity : AppCompatActivity() {
             }
 
             if (authenticateUser(username, password)) {
-                Toast.makeText(this, "Login successful", Toast.LENGTH_SHORT).show()
+                showCustomToast("Login successful", R.drawable.ok)
 
                 val intent = Intent(this, UserListActivity::class.java)
                 startActivity(intent)
-
-
             } else {
-                Toast.makeText(this, "Invalid username or password", Toast.LENGTH_SHORT).show()
+                showCustomToast("Invalid username or password", R.drawable.no)
             }
+
         }
 
         btnSignup.setOnClickListener {
@@ -52,6 +53,26 @@ class LoginActivity : AppCompatActivity() {
             startActivity(intent)
         }
     }
+
+    private fun showCustomToast(message: String, iconResId: Int) {
+        val inflater = layoutInflater
+        val layout = inflater.inflate(R.layout.toast_layout, null)
+
+        // Set the text and icon
+        val toastText = layout.findViewById<TextView>(R.id.toastText)
+        toastText.text = message
+
+        val toastIcon = layout.findViewById<ImageView>(R.id.toastIcon)
+        toastIcon.setImageResource(iconResId)
+
+        // Create and show the toast
+        val toast = Toast(applicationContext)
+        toast.duration = Toast.LENGTH_SHORT
+        toast.view = layout
+        toast.show()
+    }
+
+
 
     private fun authenticateUser(username: String, password: String): Boolean {
         val db = dbHelper.readableDatabase
