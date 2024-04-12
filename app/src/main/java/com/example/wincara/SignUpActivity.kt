@@ -8,9 +8,30 @@ import android.widget.Button
 import android.widget.CheckBox
 import android.widget.EditText
 import android.widget.ImageButton
+import android.widget.ImageView
+import android.widget.TextView
 import android.widget.Toast
 
 class SignUpActivity : AppCompatActivity() {
+
+    private fun showCustomToast(message: String, iconResId: Int) {
+        val inflater = layoutInflater
+        val layout = inflater.inflate(R.layout.toast_layout, null)
+
+        // Set the text and icon
+        val toastText = layout.findViewById<TextView>(R.id.toastText)
+        toastText.text = message
+
+        val toastIcon = layout.findViewById<ImageView>(R.id.toastIcon)
+        toastIcon.setImageResource(iconResId)
+
+        // Create and show the toast
+        val toast = Toast(applicationContext)
+        toast.duration = Toast.LENGTH_SHORT
+        toast.view = layout
+        toast.show()
+    }
+
     private lateinit var dbHelper: DatabaseHelper
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -63,15 +84,15 @@ class SignUpActivity : AppCompatActivity() {
 
             val result = dbHelper.addUser(firstName, lastName, password, gender, department)
             if (result != -1L) {
-                Toast.makeText(this, "User added successfully", Toast.LENGTH_SHORT).show()
+                showCustomToast("User added successfully", R.drawable.ok)
 
                 val intent = Intent(this, LoginActivity::class.java)
                 startActivity(intent)
             } else {
-                Toast.makeText(this, "Failed to add user", Toast.LENGTH_SHORT).show()
+                showCustomToast("Failed to add user", R.drawable.no)
             }
-            
-            
+
         }
     }
 }
+
