@@ -77,10 +77,15 @@ class SignUpActivity : AppCompatActivity() {
 
             val firstName = inputFirstName.text.trim().toString()
             val lastName = inputLastName.text.trim().toString()
-
             val password = inputPassword.text.toString()
             val gender = if (male.isChecked) "Male" else "Female"
             val department = inputDepartment.text.toString()
+
+            if (firstName.isEmpty() || lastName.isEmpty() || password.isEmpty() || department.isEmpty()) {
+                // Show error toast if any field is empty
+                showCustomToast("Please fill in all fields", R.drawable.no)
+                return@setOnClickListener
+            }
 
             val result = dbHelper.addUser(firstName, lastName, password, gender, department)
             if (result != -1L) {

@@ -33,7 +33,7 @@ class LoginActivity : AppCompatActivity() {
 
 
             if (username.isEmpty() || password.isEmpty()) {
-                Toast.makeText(this, "Please enter username and password", Toast.LENGTH_SHORT).show()
+                showCustomToast("Please enter username and password", R.drawable.no)
                 return@setOnClickListener
             }
 

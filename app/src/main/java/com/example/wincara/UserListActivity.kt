@@ -17,9 +17,12 @@ class UserListActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_user_list)
 
+
         dbHelper = DatabaseHelper(this)
         displayUserList()
     }
+
+
 
     @SuppressLint("Range")
     private fun displayUserList() {
@@ -65,5 +68,7 @@ class UserListActivity : AppCompatActivity() {
             } while (cursor.moveToNext())
         }
         cursor.close()
+
     }
+
 }
