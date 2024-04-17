@@ -5,6 +5,7 @@ import android.os.Bundle
 import android.widget.Button
 import android.widget.EditText
 import android.widget.ImageButton
+import android.widget.ImageView
 import android.widget.TableLayout
 import android.widget.TableRow
 import android.widget.TextView
@@ -108,12 +109,12 @@ class UserListActivity : AppCompatActivity() {
             // Perform delete operation
             if (dbHelper.isUserExists(firstName, lastName)) {
                 if (dbHelper.deleteUser(firstName, lastName)) {
-                    Toast.makeText(this, "User deleted successfully", Toast.LENGTH_SHORT).show()
+                    showCustomToast("User deleted successfully", R.drawable.no)
                 } else {
-                    Toast.makeText(this, "Failed to delete user", Toast.LENGTH_SHORT).show()
+                    showCustomToast("Failed to delete user", R.drawable.no)
                 }
             } else {
-                Toast.makeText(this, "User doesn't exist", Toast.LENGTH_SHORT).show()
+                showCustomToast("Oops! This user doesn't exist", R.drawable.no)
             }
             dialog.dismiss()
         }
@@ -121,6 +122,24 @@ class UserListActivity : AppCompatActivity() {
         btnCancel.setOnClickListener {
             dialog.dismiss()
         }
+    }
+
+    private fun showCustomToast(message: String, iconResId: Int) {
+        val inflater = layoutInflater
+        val layout = inflater.inflate(R.layout.toast_layout, null)
+
+        // Set the text and icon
+        val toastText = layout.findViewById<TextView>(R.id.toastText)
+        toastText.text = message
+
+        val toastIcon = layout.findViewById<ImageView>(R.id.toastIcon)
+        toastIcon.setImageResource(iconResId)
+
+        // Create and show the toast
+        val toast = Toast(applicationContext)
+        toast.duration = Toast.LENGTH_SHORT
+        toast.view = layout
+        toast.show()
     }
 
 }
