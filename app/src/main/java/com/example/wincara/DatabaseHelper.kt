@@ -1,6 +1,5 @@
 package com.example.wincara
 
-import android.annotation.SuppressLint
 import android.content.ContentValues
 import android.content.Context
 import android.database.sqlite.SQLiteDatabase
@@ -61,13 +60,25 @@ class DatabaseHelper(context: Context) :
         return db.insert(TABLE_USERS, null, values)
     }
 
-    private fun isUserExists(firstName: String, lastName: String): Boolean {
+    fun isUserExists(firstName: String, lastName: String): Boolean {
         val db = this.readableDatabase
-        val query =
-            "SELECT * FROM $TABLE_USERS WHERE $COLUMN_FIRST_NAME = ? AND $COLUMN_LAST_NAME = ?"
+        val query = "SELECT * FROM $TABLE_USERS WHERE $COLUMN_FIRST_NAME = ? AND $COLUMN_LAST_NAME = ?"
         val cursor = db.rawQuery(query, arrayOf(firstName, lastName))
         val exists = cursor.count > 0
         cursor.close()
         return exists
     }
+
+
+    fun deleteUser(fullName: String): Boolean {
+        val db = writableDatabase
+        val selection = "$COLUMN_FIRST_NAME || ' ' || $COLUMN_LAST_NAME = ?"
+        val selectionArgs = arrayOf(fullName)
+        val result = db.delete(TABLE_USERS, selection, selectionArgs)
+        db.close()
+        return result != 0
+    }
+
+
+
 }

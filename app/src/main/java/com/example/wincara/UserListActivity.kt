@@ -1,12 +1,15 @@
 package com.example.wincara
 
 import android.annotation.SuppressLint
-import android.database.Cursor
 import android.os.Bundle
+import android.widget.Button
+import android.widget.EditText
 import android.widget.ImageButton
 import android.widget.TableLayout
 import android.widget.TableRow
 import android.widget.TextView
+import android.widget.Toast
+import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 
 class UserListActivity : AppCompatActivity() {
@@ -64,11 +67,55 @@ class UserListActivity : AppCompatActivity() {
                 departmentTextView.text = department
                 row.addView(departmentTextView)
 
+                val btnDelete = findViewById<Button>(R.id.btnDelete)
+                btnDelete.setOnClickListener {
+                    val fullName = "$firstName $lastName" // Combine first name and last name
+                    showDeleteConfirmationDialog(fullName)
+                }
+
+
+
+
                 tableLayout.addView(row)
             } while (cursor.moveToNext())
         }
         cursor.close()
 
+    }
+
+    private fun showDeleteConfirmationDialog(fullName: String) {
+        val dialogView = layoutInflater.inflate(R.layout.delete_popup, null)
+        val dialogBuilder = AlertDialog.Builder(this)
+            .setView(dialogView)
+            .setTitle("Delete User")
+
+        val dialog = dialogBuilder.create()
+        dialog.show()
+
+        val btnConfirm = dialogView.findViewById<Button>(R.id.btnConfirm)
+        val btnCancel = dialogView.findViewById<Button>(R.id.btnCancel)
+        val editTextFullName = dialogView.findViewById<EditText>(R.id.editTextFullName)
+
+        btnConfirm.setOnClickListener {
+            val fullNameParts = editTextFullName.text.toString().split(" ")
+            if (fullNameParts.size != 2) {
+                Toast.makeText(this, "Please enter both first name and last name", Toast.LENGTH_SHORT).show()
+                return@setOnClickListener
+            }
+            val firstName = fullNameParts[0]
+            val lastName = fullNameParts[1]
+
+            // Perform delete operation
+            if (dbHelper.deleteUser(fullName)) {
+                Toast.makeText(this, "User deleted successfully", Toast.LENGTH_SHORT).show()
+            } else {
+                Toast.makeText(this, "User doesn't exist", Toast.LENGTH_SHORT).show()
+            }
+            dialog.dismiss()
+        }
+        btnCancel.setOnClickListener {
+            dialog.dismiss()
+        }
     }
 
 }
