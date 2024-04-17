@@ -25,9 +25,6 @@ class UserListActivity : AppCompatActivity() {
         dbHelper = DatabaseHelper(this)
         displayUserList()
     }
-
-
-
     @SuppressLint("Range")
     private fun displayUserList() {
         val tableLayout = findViewById<TableLayout>(R.id.tableLayout)
@@ -73,10 +70,6 @@ class UserListActivity : AppCompatActivity() {
                     val fullName = "$firstName $lastName" // Combine first name and last name
                     showDeleteConfirmationDialog(fullName)
                 }
-
-
-
-
                 tableLayout.addView(row)
             } while (cursor.moveToNext())
         }
@@ -105,8 +98,6 @@ class UserListActivity : AppCompatActivity() {
             }
             val firstName = fullNameParts[0]
             val lastName = fullNameParts[1]
-
-            // Perform delete operation
             if (dbHelper.isUserExists(firstName, lastName)) {
                 if (dbHelper.deleteUser(firstName, lastName)) {
                     showCustomToast("User deleted successfully", R.drawable.no)
@@ -127,15 +118,10 @@ class UserListActivity : AppCompatActivity() {
     private fun showCustomToast(message: String, iconResId: Int) {
         val inflater = layoutInflater
         val layout = inflater.inflate(R.layout.toast_layout, null)
-
-        // Set the text and icon
         val toastText = layout.findViewById<TextView>(R.id.toastText)
         toastText.text = message
-
         val toastIcon = layout.findViewById<ImageView>(R.id.toastIcon)
         toastIcon.setImageResource(iconResId)
-
-        // Create and show the toast
         val toast = Toast(applicationContext)
         toast.duration = Toast.LENGTH_SHORT
         toast.view = layout

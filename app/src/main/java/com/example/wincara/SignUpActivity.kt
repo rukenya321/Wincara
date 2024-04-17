@@ -17,15 +17,10 @@ class SignUpActivity : AppCompatActivity() {
     private fun showCustomToast(message: String, iconResId: Int) {
         val inflater = layoutInflater
         val layout = inflater.inflate(R.layout.toast_layout, null)
-
-        // Set the text and icon
         val toastText = layout.findViewById<TextView>(R.id.toastText)
         toastText.text = message
-
         val toastIcon = layout.findViewById<ImageView>(R.id.toastIcon)
         toastIcon.setImageResource(iconResId)
-
-        // Create and show the toast
         val toast = Toast(applicationContext)
         toast.duration = Toast.LENGTH_SHORT
         toast.view = layout
@@ -82,7 +77,6 @@ class SignUpActivity : AppCompatActivity() {
             val department = inputDepartment.text.toString()
 
             if (firstName.isEmpty() || lastName.isEmpty() || password.isEmpty() || department.isEmpty()) {
-                // Show error toast if any field is empty
                 showCustomToast("Please fill in all fields", R.drawable.no)
                 return@setOnClickListener
             }
@@ -100,4 +94,3 @@ class SignUpActivity : AppCompatActivity() {
         }
     }
 }
-

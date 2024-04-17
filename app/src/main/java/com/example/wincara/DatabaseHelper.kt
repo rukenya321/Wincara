@@ -68,8 +68,6 @@ class DatabaseHelper(context: Context) :
         cursor.close()
         return exists
     }
-
-
     fun deleteUser(firstName: String, lastName: String): Boolean {
         val db = writableDatabase
         val selection = "$COLUMN_FIRST_NAME = ? AND $COLUMN_LAST_NAME = ?"
@@ -78,8 +76,4 @@ class DatabaseHelper(context: Context) :
         db.close()
         return result != 0
     }
-
-
-
-
 }
