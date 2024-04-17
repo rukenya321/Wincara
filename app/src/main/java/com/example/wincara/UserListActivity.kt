@@ -25,6 +25,7 @@ class UserListActivity : AppCompatActivity() {
         dbHelper = DatabaseHelper(this)
         displayUserList()
     }
+
     @SuppressLint("Range")
     private fun displayUserList() {
         val tableLayout = findViewById<TableLayout>(R.id.tableLayout)
@@ -33,15 +34,19 @@ class UserListActivity : AppCompatActivity() {
         backButton.setOnClickListener {
             onBackPressed()
         }
-        val cursor = dbHelper.readableDatabase.rawQuery("SELECT * FROM ${DatabaseHelper.TABLE_USERS}", null)
+        val cursor =
+            dbHelper.readableDatabase.rawQuery("SELECT * FROM ${DatabaseHelper.TABLE_USERS}", null)
 
         if (cursor.moveToFirst()) {
             do {
                 val id = cursor.getInt(cursor.getColumnIndex(DatabaseHelper.COLUMN_ID))
-                val firstName = cursor.getString(cursor.getColumnIndex(DatabaseHelper.COLUMN_FIRST_NAME))
-                val lastName = cursor.getString(cursor.getColumnIndex(DatabaseHelper.COLUMN_LAST_NAME))
+                val firstName =
+                    cursor.getString(cursor.getColumnIndex(DatabaseHelper.COLUMN_FIRST_NAME))
+                val lastName =
+                    cursor.getString(cursor.getColumnIndex(DatabaseHelper.COLUMN_LAST_NAME))
                 val gender = cursor.getString(cursor.getColumnIndex(DatabaseHelper.COLUMN_GENDER))
-                val department = cursor.getString(cursor.getColumnIndex(DatabaseHelper.COLUMN_DEPARTMENT))
+                val department =
+                    cursor.getString(cursor.getColumnIndex(DatabaseHelper.COLUMN_DEPARTMENT))
 
                 val row = TableRow(this)
 
@@ -93,7 +98,11 @@ class UserListActivity : AppCompatActivity() {
         btnConfirm.setOnClickListener {
             val fullNameParts = editTextFullName.text.toString().split(" ")
             if (fullNameParts.size != 2) {
-                Toast.makeText(this, "Please enter both first name and last name", Toast.LENGTH_SHORT).show()
+                Toast.makeText(
+                    this,
+                    "Please enter both first name and last name",
+                    Toast.LENGTH_SHORT
+                ).show()
                 return@setOnClickListener
             }
             val firstName = fullNameParts[0]
@@ -101,6 +110,7 @@ class UserListActivity : AppCompatActivity() {
             if (dbHelper.isUserExists(firstName, lastName)) {
                 if (dbHelper.deleteUser(firstName, lastName)) {
                     showCustomToast("User deleted successfully", R.drawable.ok)
+                    removeTableRow(firstName, lastName)
                 } else {
                     showCustomToast("Failed to delete user", R.drawable.no)
                 }
@@ -115,6 +125,7 @@ class UserListActivity : AppCompatActivity() {
         }
     }
 
+
     private fun showCustomToast(message: String, iconResId: Int) {
         val inflater = layoutInflater
         val layout = inflater.inflate(R.layout.toast_layout, null)
@@ -128,4 +139,16 @@ class UserListActivity : AppCompatActivity() {
         toast.show()
     }
 
+    private fun removeTableRow(firstName: String, lastName: String) {
+        val tableLayout = findViewById<TableLayout>(R.id.tableLayout)
+        for (i in 0 until tableLayout.childCount) {
+            val row = tableLayout.getChildAt(i) as TableRow
+            val firstNameTextView = row.getChildAt(1) as TextView
+            val lastNameTextView = row.getChildAt(2) as TextView
+            if (firstNameTextView.text.toString() == firstName && lastNameTextView.text.toString() == lastName) {
+                tableLayout.removeView(row)
+                break
+            }
+        }
+    }
 }
