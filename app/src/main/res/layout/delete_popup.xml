@@ -18,6 +18,7 @@
 
         <Button
             android:id="@+id/btnConfirm"
+            android:backgroundTint="#004AAD"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Confirm"
@@ -25,6 +26,7 @@
 
         <Button
             android:id="@+id/btnCancel"
+            android:backgroundTint="#004AAD"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Cancel"
