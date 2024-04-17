@@ -9,7 +9,11 @@
         android:id="@+id/editTextFullName"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="Full Name" />
+        android:hint="Full Name"
+        android:textColor="#FDFDFD"
+        android:textColorHighlight="#FDFDFD"
+        android:textColorLink="#FDFDFD"
+        android:textStyle="normal" />
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -17,20 +21,28 @@
         android:orientation="horizontal">
 
         <Button
-            android:id="@+id/btnConfirm"
-            android:backgroundTint="#004AAD"
+            android:id="@+id/btnCancel"
+            style="?android:attr/buttonBarButtonStyle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Confirm"
-            android:layout_weight="1" />
+            android:layout_weight="1"
+            android:backgroundTint="#004AAD"
+            android:text="Cancel"
+            android:textColor="@color/white"
+            android:textColorLink="@color/white"
+            android:textStyle="bold" />
 
         <Button
-            android:id="@+id/btnCancel"
-            android:backgroundTint="#004AAD"
+            android:id="@+id/btnConfirm"
+            style="?android:attr/buttonBarButtonStyle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Cancel"
-            android:layout_weight="1" />
+            android:layout_weight="1"
+            android:backgroundTint="#004AAD"
+            android:text="Confirm"
+            android:textColor="@color/white"
+            android:textColorLink="@color/white"
+            android:textStyle="bold" />
 
     </LinearLayout>
 </LinearLayout>
