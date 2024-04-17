@@ -106,13 +106,18 @@ class UserListActivity : AppCompatActivity() {
             val lastName = fullNameParts[1]
 
             // Perform delete operation
-            if (dbHelper.deleteUser(fullName)) {
-                Toast.makeText(this, "User deleted successfully", Toast.LENGTH_SHORT).show()
+            if (dbHelper.isUserExists(firstName, lastName)) {
+                if (dbHelper.deleteUser(firstName, lastName)) {
+                    Toast.makeText(this, "User deleted successfully", Toast.LENGTH_SHORT).show()
+                } else {
+                    Toast.makeText(this, "Failed to delete user", Toast.LENGTH_SHORT).show()
+                }
             } else {
                 Toast.makeText(this, "User doesn't exist", Toast.LENGTH_SHORT).show()
             }
             dialog.dismiss()
         }
+
         btnCancel.setOnClickListener {
             dialog.dismiss()
         }

@@ -70,14 +70,15 @@ class DatabaseHelper(context: Context) :
     }
 
 
-    fun deleteUser(fullName: String): Boolean {
+    fun deleteUser(firstName: String, lastName: String): Boolean {
         val db = writableDatabase
-        val selection = "$COLUMN_FIRST_NAME || ' ' || $COLUMN_LAST_NAME = ?"
-        val selectionArgs = arrayOf(fullName)
+        val selection = "$COLUMN_FIRST_NAME = ? AND $COLUMN_LAST_NAME = ?"
+        val selectionArgs = arrayOf(firstName, lastName)
         val result = db.delete(TABLE_USERS, selection, selectionArgs)
         db.close()
         return result != 0
     }
+
 
 
 
