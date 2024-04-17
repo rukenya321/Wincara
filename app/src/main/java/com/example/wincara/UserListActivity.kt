@@ -100,7 +100,7 @@ class UserListActivity : AppCompatActivity() {
             val lastName = fullNameParts[1]
             if (dbHelper.isUserExists(firstName, lastName)) {
                 if (dbHelper.deleteUser(firstName, lastName)) {
-                    showCustomToast("User deleted successfully", R.drawable.no)
+                    showCustomToast("User deleted successfully", R.drawable.ok)
                 } else {
                     showCustomToast("Failed to delete user", R.drawable.no)
                 }
